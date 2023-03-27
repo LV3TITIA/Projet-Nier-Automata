@@ -7,6 +7,9 @@ public class EnnemyHealth : MonoBehaviour
     #region Exposed
     [SerializeField]
     int _ennemyHealth;
+
+    [SerializeField]
+    private GameObject _explodePrefab;
     #endregion
 
     #region Unity Lifecycle
@@ -29,9 +32,14 @@ public class EnnemyHealth : MonoBehaviour
             if (_ennemyHealth <= 0)
             {
                 _gameManager.EnnemysDecreament();
+                Instantiate(_explodePrefab, transform.position, Quaternion.identity, null);
                 Destroy(gameObject);
 
             }
+        }
+        else if (collision.gameObject.CompareTag("fire"))
+        {
+            Debug.Log("JE BRULE !!!!");
         }
        
             
