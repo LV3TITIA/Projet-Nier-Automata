@@ -77,7 +77,7 @@ public class PlayerMovement : MonoBehaviour
         if (other.gameObject.tag == "Ground")
         {
             Debug.Log("Je collisione " + other.name);
-            _jumping= true;
+            _jumping = true;
             cubeIsOnTheGround = true;
         }
     }
